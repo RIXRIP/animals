@@ -1,0 +1,65 @@
+.header {
+    background-color: #ece6cd;
+    display:flex;
+    width: 100%;
+}
+
+.logo {
+    width: 150px;
+    margin: 10px;
+    font-size: 25px;
+    text-decoration:none;
+    color: black;
+}
+
+//.navRegistration {
+//    color: rgb(62, 62, 218);
+//    justify-content: center;
+//    display: flex;
+//    cursor: pointer;
+//}
+.personalAuth{
+    margin-left: auto;
+    display: flex;
+    text-align: center;
+    font-size: 20px;
+
+}
+.navAuth{
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+ input{
+     display: block;
+     margin: 5px;
+     border-radius: 7px ;
+     border: 1px solid black;
+     padding: 5px;
+     font-size: 15px;
+     justify-content: center;
+     margin-right: auto;
+     margin-left: auto;
+ }
+
+.personal{
+
+    text-transform: uppercase;
+    color: black;
+    padding:10px 0px 5px 10px;
+    cursor: pointer;
+    width: auto;
+    height: 45px;
+    text-decoration:none;
+}
+.auth{
+    padding:10px 10px 5px 10px;
+    cursor: pointer;
+    width: auto;
+    height: 45px;
+}

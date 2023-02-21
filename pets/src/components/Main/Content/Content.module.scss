@@ -1,0 +1,85 @@
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #fcf8ed;
+  overflow: hidden;
+}
+
+.mainConteiner {
+  color: black;
+  background-image: url("https://helppet.ru/img/base/BG_1024.jpg");
+  background-repeat: no-repeat;
+  background-size: contain
+}
+
+.conteiner {
+
+  grid-template-columns:20% 80%;
+  display: grid;
+}
+
+.conteinerGrid {
+  grid-template-columns: 50% 50%;
+  display: grid;
+}
+
+.announcement {
+  height: 200px;
+  width: 300px;
+  background: #3a3f58;
+  margin: 20px;
+  margin: 10px auto;
+  border-radius: 20px;
+
+}
+
+.announcementText {
+  text-align: center;
+  display: block;
+  padding: 10px;
+  color: #ffffff;
+  height: 100%;
+  margin: auto;
+  font-size: 20px;
+}
+
+.btn {
+  background-color: #e6edff;
+  margin: 10px;
+  border: 1px solid #6e6e6e;
+  border-radius: 10px;
+  font-size: 17px;
+  padding: 5px;
+  vertical-align: center;
+}
+
+.description {
+  min-width: 600px;
+  min-height: 200px;
+  resize: none;
+}
+
+.animalPhoto {
+  width: 400px;
+  height: auto;
+}
+
+.modalContent {
+  display: block;
+  justify-content: center;
+  input {
+    border-radius: 5px;
+    border: 1px black solid;
+    margin: 4px;
+    padding: 5px;
+    width: 100%;
+  }
+}
+.dropArea{
+height: 300px;
+  width: 500px;
+  border: 5px dashed black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
