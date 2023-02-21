@@ -1,6 +1,7 @@
-import styles from "../../AnimalPage/Pages.module.scss";
-import NewUserAnimalsItem from "./NewUserAnimalsItem/NewUserAnimalsItem";
+import styles from "../AnimalPage/Pages.module.scss";
+import NewUserAnimalsItem from "../User/NewUserAnimalsItem/NewUserAnimalsItem";
 import React from "react";
+import NewPersonalAnimalsItem from "./NewPersonalAnimalsItem";
 
 
 const Personal = (props)=>{
@@ -13,7 +14,7 @@ const Personal = (props)=>{
             <div>Город: {props.personal.location? null: "Город не указан"}</div>
         <div className={styles.allItems}>
             {props.userCurrentAnimals.map(a => <div className={styles.conteinerItems}>
-                    <NewUserAnimalsItem
+                    <NewPersonalAnimalsItem
                         id={a.id}
                         name={a.name}
                         breed={a.breed}
@@ -21,6 +22,7 @@ const Personal = (props)=>{
                         animalPhoto={a.animalPhoto}
                         description={a.description}
                         showAnimal={props.showAnimal}
+                     
                     />
 
                 </div>

@@ -7,6 +7,7 @@ const initialState = {
 
 const dataAboutAnimalReducer = (state = initialState, action) => {
     switch (action.type) {
+        //case с пушем данных из action creater в state
         case DATA_ANIMAL_PAGE:
             return {
                 dataAboutAnimal:{
@@ -26,6 +27,7 @@ const dataAboutAnimalReducer = (state = initialState, action) => {
 
 
 }
+//action creater, в него приходят данные для вывода информации на эран
 export const showAnimal = (idAnimal,nameAnimal,speciesAnimal,breedAnimal,animalPhoto,descriptionAnimal) => {
     return { type: DATA_ANIMAL_PAGE, idAnimal, nameAnimal,speciesAnimal,breedAnimal ,animalPhoto, descriptionAnimal}
 }

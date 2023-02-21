@@ -1,10 +1,10 @@
-import SidebarAnimal from "../SideBar/SidebarAnimal";
+import SidebarAnimal from "./SideBar/SidebarAnimal";
 import styles from "./Main.module.scss"
 import ContentContainer from "./Content/ContentContainer";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AnimalPageContainer from "../AnimalPage/AnimalPageContainer";
-import SidebarUser from "../SideBar/SidebarUser";
-import UserContainer from "./Personal/UserContainer";
+import AnimalPageContainer from "./AnimalPage/AnimalPageContainer";
+import SidebarUser from "./SideBar/SidebarUser";
+import UserContainer from "./User/UserContainer";
 import HeaderContainer from "./Header/HeaderContainer";
 import PersonalConatiner from "./Personal/PersonalContainer";
 

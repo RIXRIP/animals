@@ -18,7 +18,6 @@ const Header = (props) => {
                     </div>
                     <text className={styles.auth} onClick={() => setModalAuthorization(true)}>ВОЙТИ</text>
                 </div>
-
             </header>
 
             <Modal active={modalAuthorization} setActive={setModalAuthorization}>

@@ -5,7 +5,7 @@ import axios from 'axios'
 import {useLocation, useNavigate, useParams,} from "react-router-dom";
 import { showAnimal } from "../../../redux/about-animal-reducer";
 import Personal from "./Personal";
-import {setPersonalData, setPersonalProfileAnimals} from "../../../redux/auth-reducer";
+import { setPersonalProfileAnimals} from "../../../redux/auth-reducer";
 class PersonalConatiner extends React.Component {
 
     componentDidMount() {

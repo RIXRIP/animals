@@ -17,9 +17,9 @@ const Content = (props) => {
         let inputBreed = inputRefBreed.current.value;
         let inputDescription = inputRefDescription.current.value;
 
-        props.addText(inputName, inputSpecies, inputBreed, {}, inputDescription);
+        props.addText(inputName, inputSpecies, inputBreed, "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg", inputDescription);
         axios.post(`http://localhost:3005/animals`, {
-            name: inputName,
+            name: inputName,    
             species: inputSpecies,
             breed: inputBreed,
             animalPhoto: "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg",
@@ -80,11 +80,11 @@ const Content = (props) => {
 
             <div className={styles.modalContent}>
                 Создать объявление
-                <input ref={inputRefName} onChange={changeName} value={props.newPostText.name}
+                <input ref={inputRefName} min="3" required onChange={changeName} value={props.newPostText.name}
                        placeholder="Имя/кличка питомца"/>
-                <input ref={inputRefSpecies} onChange={changeName} value={props.newPostText.species}
+                <input ref={inputRefSpecies} required onChange={changeName} value={props.newPostText.species}
                        placeholder="Какое животное(собака/кошка/...)"/>
-                <input ref={inputRefBreed} onChange={changeName} value={props.newPostText.breed}
+                <input ref={inputRefBreed} required onChange={changeName} value={props.newPostText.breed}
                        placeholder="Порода вашего питомца"/>
             </div>
 
