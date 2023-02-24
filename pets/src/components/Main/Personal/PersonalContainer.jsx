@@ -9,7 +9,7 @@ import { setPersonalProfileAnimals} from "../../../redux/auth-reducer";
 class PersonalConatiner extends React.Component {
 
     componentDidMount() {
-        axios.get("http://localhost:3005/animals?userID=" + 28035).then(response => {
+        axios.get("http://localhost:3005/animals?userID=" + this.props.userID).then(response => {
             this.props.setPersonalProfileAnimals(response.data);
         });
     }
@@ -24,7 +24,8 @@ let mapStateToProps = (state) => ({
     animals: state.animalsData.animals,
     currentPage: state.animalsData.currentPage,
     userCurrentAnimals: state.auth.userCurrentAnimals,
-    personal: state.auth
+    personal: state.auth,
+    userID: state.auth.data.user.id
 })
 
 

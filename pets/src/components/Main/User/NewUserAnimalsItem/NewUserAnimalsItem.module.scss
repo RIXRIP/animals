@@ -1,46 +1,46 @@
 .conteinerGrid {
-    grid-auto-columns: minmax(25px, auto);
-    grid-auto-rows: minmax(25px, auto);
-    grid-gap: 5px;
-    display: grid;
+  grid-auto-columns: minmax(25px, auto);
+  grid-auto-rows: minmax(25px, auto);
+  grid-gap: 5px;
+  display: grid;
 }
 
 .item {
-    padding: 10px;
+  padding: 10px;
 }
 
 .item_1 {
-    margin: 1px;
+  margin: 1px;
 }
 
 .animalButtons {
-    cursor: pointer;
-    min-width: 100%;
-    text-align: start;
-    border: 1px #3d3d3d solid;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    font-size: 17px;
-    background-color: #ece6cd;
+  cursor: pointer;
+  text-align: start;
+  border: 1px #3d3d3d solid;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  background-color: #ece6cd;
 }
 
 .animalPhoto {
-    border-radius: 10px;
-    padding-top: 3px;
-    display: flex;
-    width: 100%;
-    height: auto;
+  border-radius: 10px;
+  padding-top: 3px;
+  display: flex;
+  width: 400px;
+  height: 300px;
 }
-.navLink{
-    max-width: 200px;
-}
-.deliteBtn{
-    margin: 5px;
-    padding: 5px;
-    border-radius: 7px;
-    border: 1px solid red;
-    display: flex;
-    margin-left: auto;
 
-    color: red;
+.navLink {
+  max-width: 200px;
+}
+
+.deleteBtn {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 7px;
+  border: 1px solid red;
+  display: flex;
+  margin-left: auto;
+  color: red;
 }

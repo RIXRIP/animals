@@ -1,93 +1,29 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Вася",
-      "phone": "89503455315",
-      "email": "vasia228@mail.ru",
-      "location": "Москва",
-      "animals": [
-        {
-          "id": 3,
-          "name": "Кира",
-          "species": "Собака",
-          "breed": "Тварь дрожащая",
-          "animalPhoto": "https://kareliya.ru/resources/doc-17195-ph-gallery-17199-original.jpg",
-          "userID": 1,
-          "description": "ДА"
-        }
-      ]
+      "email": "hasbik@mail.ru",
+      "password": "$2a$10$ba7uvVGf0CYmCrPbNPq.UuWfFjn75..v3jBAk4VgN3YzTDesS.0Ni",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Дима",
-      "phone": "89503455315",
-      "email": "dima@mail.ru",
-      "location": "Москва",
-      "animals": [
-        {
-          "id": 2,
-          "name": "Тузик",
-          "species": "Собака",
-          "breed": "Хаски",
-          "animalPhoto": "https://kareliya.ru/resources/doc-17195-ph-gallery-17199-original.jpg",
-          "userID": 2,
-          "description": "Потерялся на улице Труда"
-        },
-        {
-          "id": 4,
-          "name": "Демин",
-          "species": "Игуана",
-          "breed": "Костобокая",
-          "animalPhoto": "https://kareliya.ru/resources/doc-17195-ph-gallery-17199-original.jpg",
-          "userID": 2,
-          "description": ""
-        },
-        {
-          "id": 5,
-          "name": "Жорик",
-          "species": "Игуана",
-          "breed": "Костобокая",
-          "animalPhoto": "https://kareliya.ru/resources/doc-17195-ph-gallery-17199-original.jpg",
-          "userID": 2,
-          "description": "Найдите пожалуйста"
-        }
-      ]
+      "email": "lol@mail.ru",
+      "password": "$2a$10$WMguXgATrd/V7wi0gFPvDOmPX5KxfEpsFlmbWGvLh2uCSFydRmliy",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Елена",
-      "phone": "89503455315",
-      "email": "Lena2000@mail.ru",
-      "location": "Москва",
-      "animals": [
-        {
-          "id": 1,
-          "name": "Вася",
-          "species": "Собака",
-          "breed": "Лайка",
-          "animalPhoto": "https://kareliya.ru/resources/doc-17195-ph-gallery-17199-original.jpg",
-          "userID": 3,
-          "description": "Вот бедняжка мой"
-        },
-        {
-          "name": "Вася",
-          "species": "Собака",
-          "breed": "Лайка",
-          "animalPhoto": "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg",
-          "userID": 3,
-          "description": "",
-          "id": 6
-        }
-      ]
+      "email": "jjj@mail.ru",
+      "password": "$2a$10$uyYw5qhRJLbx9y8cyexDn.lrdN0HENMQBRITDtyTHZAHAPnYEpBxy",
+      "id": 3
     },
     {
-      "id": 4,
-      "name": "yagami",
-      "phone": "89503565315",
-      "email": "Kira2000@mail.ru",
-      "location": "Москва",
-      "animals": []
+      "email": "babika@mail.ru",
+      "password": "$2a$10$BdQhI/6pY2JEwB9X8dgYJ.qOtmTcoJ4qfhJuHPd3vEf0IN.wFsU3O",
+      "id": 4
+    },
+    {
+      "email": "kkkk@mail.ru",
+      "password": "$2a$10$kKE8A/uIfojbTt1A17Dx/..ioK1Q/1X2mPTCO8cOxXrp4J3KRpESK",
+      "id": 5
     }
   ],
   "animals": [
@@ -146,17 +82,26 @@
       "id": 6
     },
     {
-      "name": "Леха",
-      "species": "Собака",
-      "breed": "Дворняга",
+      "name": "Артем",
+      "species": "Кот",
+      "breed": "Сфинкс",
       "animalPhoto": "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg",
-      "userID": 28035,
-      "description": "Потерялся броненосец Леха, в районе улицы Лепсе, нашедших просьба обращаться на почту",
+      "userID": 5,
+      "description": "Потерялся на улице Горбачева, найти за вознаграждение ",
       "id": 7
+    },
+    {
+      "name": "Лола",
+      "species": "Кошка",
+      "breed": "Сфинкс",
+      "animalPhoto": "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg",
+      "userID": 5,
+      "description": "",
+      "id": 8
     }
   ],
   "dataTotalCount": {
-    "animalsCount": 7,
+    "animalsCount": 8,
     "usersCount": 5
   }
 }

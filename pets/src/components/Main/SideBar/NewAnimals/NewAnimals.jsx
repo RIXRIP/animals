@@ -1,6 +1,5 @@
-import styles from './NewAnimals.module.scss'
+import styles from '../Sidebar.module.scss'
 import React from "react";
-import axios from "axios";
 import NewAnimalsItem from './NewAnimalsItem/NewAnimalsItem';
 
 const NewAnimals =(props)=> {

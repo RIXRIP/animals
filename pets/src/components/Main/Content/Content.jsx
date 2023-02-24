@@ -4,6 +4,7 @@ import styles from "./Content.module.scss"
 import axios from 'axios'
 
 const Content = (props) => {
+
     const [modalAddAnimal, setModalAddAnimal] = useState(false);
     const [drag, setDrag] = useState(true)
     let inputRefName = React.createRef();
@@ -11,7 +12,8 @@ const Content = (props) => {
     let inputRefBreed = React.createRef();
     let inputRefDescription = React.createRef();
 
-    let dataAdd = () => {
+    let dataAdd = (e) => {
+        e.preventDefault()
         let inputName = inputRefName.current.value;
         let inputSpecies = inputRefSpecies.current.value;
         let inputBreed = inputRefBreed.current.value;
@@ -77,12 +79,12 @@ const Content = (props) => {
         </div>
 
         <Modal active={modalAddAnimal} setActive={setModalAddAnimal}>
-
+<form onSubmit={dataAdd}>
             <div className={styles.modalContent}>
                 Создать объявление
-                <input ref={inputRefName} min="3" required onChange={changeName} value={props.newPostText.name}
+                <input ref={inputRefName} minLength="3" required onChange={changeName} value={props.newPostText.name}
                        placeholder="Имя/кличка питомца"/>
-                <input ref={inputRefSpecies} required onChange={changeName} value={props.newPostText.species}
+                <input ref={inputRefSpecies} minLength="3"required onChange={changeName} value={props.newPostText.species}
                        placeholder="Какое животное(собака/кошка/...)"/>
                 <input ref={inputRefBreed} required onChange={changeName} value={props.newPostText.breed}
                        placeholder="Порода вашего питомца"/>
@@ -108,8 +110,8 @@ const Content = (props) => {
             либо кто-либо другой его последний раз видели:
             <div><textarea className={styles.description} ref={inputRefDescription} onChange={changeName}
                            placeholder="Описание..."/></div>
-            <button className={styles.btn} onClick={dataAdd}>Создать</button>
-
+            <button className={styles.btn} type={"submit"}>Создать</button>
+        </form>
         </Modal>
         </body>
     );

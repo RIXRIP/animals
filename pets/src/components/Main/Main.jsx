@@ -7,6 +7,8 @@ import SidebarUser from "./SideBar/SidebarUser";
 import UserContainer from "./User/UserContainer";
 import HeaderContainer from "./Header/HeaderContainer";
 import PersonalConatiner from "./Personal/PersonalContainer";
+import LoginContainer from "./Login/LoginContainer";
+import RegisterContainer from "./Register/RegisterContainer";
 
 const Main = (props) => {
     return (
@@ -20,6 +22,8 @@ const Main = (props) => {
                         <Route path={"/user/:id"} element={<UserContainer />}></Route>
                         <Route path={"/personal"} element={<PersonalConatiner  />}></Route>
                         <Route path={"/animal/:id"} element={<AnimalPageContainer  />}></Route>
+                        <Route exact path="/login" element={<LoginContainer/>}></Route>
+                        <Route exact path="/register" element={<RegisterContainer/>}></Route>
                     </Routes >
                     <SidebarUser/>
                 </div>

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import styles from '../User/NewUserAnimalsItem/NewUserAnimalsItem.module.scss'
+import axios from "axios";
 
 const NewPersonalAnimalsItem = (props) => {
     let recordAnimal = () => {
@@ -13,17 +14,23 @@ const NewPersonalAnimalsItem = (props) => {
 
     }
 
-    let path = "/animal/" + props.id
+const postDelete=()=>{
+    axios.delete("http://localhost:3005/animals?id="+props.id).then(response  =>{
+    console.log(response.data)
+    })
+
+}
 
     return (
         <>
-            <NavLink className={styles.navLink} to={path}><button className={styles.animalButtons} onClick={recordAnimal}> 
+            <NavLink className={styles.navLink} to={"/animal/" + props.id}><button className={styles.animalButtons} onClick={recordAnimal}>
             <div><img className={styles.animalPhoto} src={props.animalPhoto} alt="not found"/></div>
             {props.id}. {props.name}
-            <button className={styles.deliteBtn}>Удалить</button>
+
             </button>
-           
+
             </NavLink>
+            <button className={styles.deleteBtn} onClick={postDelete}>Удалить</button>
         </>
     )
 }

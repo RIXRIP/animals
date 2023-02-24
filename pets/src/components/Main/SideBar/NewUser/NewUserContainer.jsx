@@ -21,7 +21,8 @@ const mapStateToProps = (state) => {
         users: state.usersData.users,
         pageSize: state.usersData.pageSize,
         totalUsersCount: state.animalsData.totalUsersCount,
-        currentPage: state.animalsData.currentPage
+        currentPage: state.animalsData.currentPage,
+        user: state.auth.data.user.id
     }
 }
 export default connect(mapStateToProps, {setUsers})(NewUsersContainer);

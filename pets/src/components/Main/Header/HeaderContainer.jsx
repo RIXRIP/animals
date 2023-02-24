@@ -1,27 +1,23 @@
-import Header from "./Header";
 import React from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import Header from "./Header";
 import {setPersonalData} from "../../../redux/auth-reducer";
-import {connect} from "react-redux";
-import {mapStateToPropsFactory} from "react-redux/es/connect/mapStateToProps";
 
-class HeaderContainer extends React.Component {
+
+class HomeContainer extends React.Component {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true}).then(response => {
-            if (response.data.resultCode === 0) {
-                let {id, email, login} = response.data.data
-                this.props.setPersonalData(id, email, login);
-            }
-
-        });
+        if(localStorage.getItem('user')!==null){
+            this.props.setPersonalData(JSON.parse(localStorage.getItem('user')))
+        }
     }
-
     render() {
-        return <Header{...this.props}/>
+        return <Header {...this.props} />
     }
 }
-const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth,
-    login: state.auth.login,
+
+let mapStateToProps = (state) => ({
+    auth: state.auth.data
 })
-export default connect(mapStateToProps, {setPersonalData})(HeaderContainer);
+
+
+export default connect(mapStateToProps, { setPersonalData })(HomeContainer);
