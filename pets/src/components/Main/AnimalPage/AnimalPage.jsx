@@ -3,7 +3,6 @@ import React from "react";
 import styles from "./Pages.module.scss"
 
 const AnimalPage = (props) => {
-    //форма для отображения данных о питомце
 
     return (
         <div className={styles.container}>

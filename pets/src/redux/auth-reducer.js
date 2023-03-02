@@ -22,9 +22,10 @@ const authReducer = (state = initialState, action) => {
                         email: action.data.user.email},
                     token: action.data.accessToken
                 }
-
             }
+
         case SET_PERSONAL_PROFILE_ANIMALS:{
+
             return {
                 ...state,
                 userCurrentAnimals: action.userCurrentAnimals

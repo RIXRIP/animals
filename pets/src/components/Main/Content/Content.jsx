@@ -2,15 +2,17 @@ import React, {useState} from "react";
 import Modal from "../../Modal/Modal";
 import styles from "./Content.module.scss"
 import axios from 'axios'
+import {animalsAPI} from "../../../server/api/api";
 
 const Content = (props) => {
-
     const [modalAddAnimal, setModalAddAnimal] = useState(false);
-    const [drag, setDrag] = useState(true)
+
     let inputRefName = React.createRef();
     let inputRefSpecies = React.createRef();
     let inputRefBreed = React.createRef();
     let inputRefDescription = React.createRef();
+    let inputRefPhoto = React.createRef();
+
 
     let dataAdd = (e) => {
         e.preventDefault()
@@ -18,54 +20,29 @@ const Content = (props) => {
         let inputSpecies = inputRefSpecies.current.value;
         let inputBreed = inputRefBreed.current.value;
         let inputDescription = inputRefDescription.current.value;
+        let inputPhoto = inputRefPhoto.current.value;
 
-        props.addText(inputName, inputSpecies, inputBreed, "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg", inputDescription);
-        axios.post(`http://localhost:3005/animals`, {
-            name: inputName,    
-            species: inputSpecies,
-            breed: inputBreed,
-            animalPhoto: "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg",
-            userID: props.userID,
-            description: inputDescription
-        });
-        axios.get(`http://localhost:3005/dataTotalCount`).then(response => {
-            axios.put(`http://localhost:3005/dataTotalCount`, {
-                animalsCount: props.totalAnimals + 1,
-                usersCount: response.data.usersCount
-            })
-        })
+
+        props.addText(inputName, inputSpecies, inputBreed, inputPhoto, inputDescription);
+
+        props.NewAnimal(inputName, inputSpecies,inputBreed,inputPhoto,props.userID,inputDescription);
+
+        props.updateTotalCount(props.totalAnimals + 1)
 
         inputRefName.current.value = '';
         inputRefSpecies.current.value = '';
         inputRefBreed.current.value = '';
         inputRefDescription.current.value = '';
+        inputRefPhoto.current.value = ''
 
     }
-
     let changeName = () => {
         let newText = inputRefName.current.value;
         let newSpeciesText = inputRefSpecies.current.value;
         let newBreedText = inputRefBreed.current.value;
         let newDescriptionText = inputRefDescription.current.value;
-        props.updateText(newText, newSpeciesText, newBreedText, newDescriptionText)
-    }
 
-    const dragStartHandler = (e) => {
-        e.preventDefault(true)
-        setDrag(true)
-    }
-    const dragLeaveHandler = (e) => {
-        e.preventDefault(false)
-        setDrag(false)
-    }
-    const onDropHandler = (e) => {
-        e.preventDefault(false)
-        let files = [...e.dataTransfer.files];
-        const formData = new FormData();
-        formData.append("animalPhoto", files[0]);
-        axios.post('http://localhost:3005/animals', formData)
-        debugger
-        setDrag(false)
+        props.updateText(newText, newSpeciesText, newBreedText, newDescriptionText)
     }
 
     return (
@@ -79,39 +56,29 @@ const Content = (props) => {
         </div>
 
         <Modal active={modalAddAnimal} setActive={setModalAddAnimal}>
-<form onSubmit={dataAdd}>
-            <div className={styles.modalContent}>
-                Создать объявление
-                <input ref={inputRefName} minLength="3" required onChange={changeName} value={props.newPostText.name}
-                       placeholder="Имя/кличка питомца"/>
-                <input ref={inputRefSpecies} minLength="3"required onChange={changeName} value={props.newPostText.species}
-                       placeholder="Какое животное(собака/кошка/...)"/>
-                <input ref={inputRefBreed} required onChange={changeName} value={props.newPostText.breed}
-                       placeholder="Порода вашего питомца"/>
-            </div>
+            <form onSubmit={dataAdd}>
+                <div className={styles.modalContent}>
+                    Создать объявление
+                    <input ref={inputRefName} minLength="3" required onChange={changeName}
+                           value={props.newPostText.name}
+                           placeholder="Имя/кличка питомца"/>
+                    <input ref={inputRefSpecies} minLength="3" required onChange={changeName}
+                           value={props.newPostText.species}
+                           placeholder="Какое животное(собака/кошка/...)"/>
+                    <input ref={inputRefBreed} required onChange={changeName} value={props.newPostText.breed}
+                           placeholder="Порода вашего питомца"/>
 
-            <div>Вставте изображение вашего питомца:</div>
-
-            {/*<div>{drag? <div className={styles.dropArea}*/}
-            {/*                 onDragStart={e=>dragStartHandler(e)}*/}
-            {/*                 onDragLeave={e=>dragLeaveHandler(e)}*/}
-            {/*                 onDragOver={e=>dragStartHandler(e)}*/}
-            {/*                 onDrop ={e=>onDropHandler(e)}*/}
-            {/*    >Отпустите файлы, чтобы загрузить их</div>*/}
-            {/*    :<div onDragStart={e=>dragStartHandler(e)}*/}
-            {/*          onDragLeave={e=>dragLeaveHandler(e)}*/}
-            {/*          onDragOver={e=>dragStartHandler(e)}*/}
-            {/*    >Перетащите файлы, чтобы загрузить их</div>*/}
-            {/*}</div>*/}
-
-            <div><img className={styles.animalPhoto}
-                      src="https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg" alt="not found"></img></div>
-            <div>Если нет фотографии опишите подробнее как выглядит питомец и где вы,</div>
-            либо кто-либо другой его последний раз видели:
-            <div><textarea className={styles.description} ref={inputRefDescription} onChange={changeName}
-                           placeholder="Описание..."/></div>
-            <button className={styles.btn} type={"submit"}>Создать</button>
-        </form>
+                    <div>
+                        Вставте ссылку на фото животного:
+                        <br/> <input ref={inputRefPhoto} onChange={changeName}/>
+                    </div>
+                </div>
+                <div>Если нет фотографии опишите подробнее как выглядит питомец и где вы,</div>
+                либо кто-либо другой его последний раз видели:
+                <div><textarea className={styles.description} ref={inputRefDescription} onChange={changeName}
+                               placeholder="Описание..."/></div>
+                <button className={styles.btn} type={"submit"}>Создать</button>
+            </form>
         </Modal>
         </body>
     );

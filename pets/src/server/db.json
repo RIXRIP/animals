@@ -21,8 +21,8 @@
       "id": 4
     },
     {
-      "email": "kkkk@mail.ru",
-      "password": "$2a$10$kKE8A/uIfojbTt1A17Dx/..ioK1Q/1X2mPTCO8cOxXrp4J3KRpESK",
+      "email": "jjjj@mail.ru",
+      "password": "$2a$10$s8tKeHOnFLg/DO7P/WZIqOL0/B6ggkOpYyXbCvyBLkSp51mgFifcG",
       "id": 5
     }
   ],
@@ -82,26 +82,17 @@
       "id": 6
     },
     {
-      "name": "Артем",
-      "species": "Кот",
-      "breed": "Сфинкс",
-      "animalPhoto": "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg",
+      "name": "Костя",
+      "species": "Лобстер",
+      "breed": "Глубоководный",
+      "animalPhoto": "https://eda.ru/img/eda/c464x302/s1.eda.ru/StaticContent/Photos/120131083649/120329192711/p_O.jpg",
       "userID": 5,
-      "description": "Потерялся на улице Горбачева, найти за вознаграждение ",
+      "description": "Улез в форточку и упал",
       "id": 7
-    },
-    {
-      "name": "Лола",
-      "species": "Кошка",
-      "breed": "Сфинкс",
-      "animalPhoto": "https://www.interfax.ru/ftproot/textphotos/2020/02/07/y700.jpg",
-      "userID": 5,
-      "description": "",
-      "id": 8
     }
   ],
   "dataTotalCount": {
-    "animalsCount": 8,
+    "animalsCount": 7,
     "usersCount": 5
   }
 }

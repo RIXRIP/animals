@@ -2,19 +2,6 @@ import {NavLink} from "react-router-dom";
 import styles from "./Header.module.scss"
 
 const Header = (props) => {
-
-    const logOutUser = () => {
-        let userData = {
-            user: {
-                id: null,
-                email: '',
-                token: null
-            }
-        }
-        props.setPersonalData(userData)
-        localStorage.removeItem('user')
-    }
-
     return (
         <>
             <header className={styles.header}>
@@ -25,13 +12,13 @@ const Header = (props) => {
                 </div>
                 <NavLink className={styles.personal} to={"/personal"}> <p >{props.auth.user.email}{" | "}</p></NavLink>
                 {props.auth.user.email.length ?
-                    <p className={styles.auth} onClick={logOutUser}>
+                    <p className={styles.auth} onClick={props.logOutUser}>
                         Выйти
                     </p> :
-                    <NavLink className={styles.auth} to="/register">
-                        <text >
+                    <NavLink className={styles.personal} to="/register">
+                        <p className={styles.auth}>
                             Регистрация
-                        </text>
+                        </p>
                     </NavLink>
                 }
             </header>

@@ -4,10 +4,9 @@ const initialState = {
     dataAboutAnimal: {
     },
 }
-
 const dataAboutAnimalReducer = (state = initialState, action) => {
+
     switch (action.type) {
-        //case с пушем данных из action creater в state
         case DATA_ANIMAL_PAGE:
             return {
                 dataAboutAnimal:{
@@ -16,19 +15,19 @@ const dataAboutAnimalReducer = (state = initialState, action) => {
                     species: action.speciesAnimal,
                     breed : action.breedAnimal,
                     animalPhoto : action.animalPhoto,
-                    description: action.descriptionAnimal
+                    description: action.descriptionAnimal,
+                    deleteID:action.deleteAnimal
                 }
             }
-      
-        // case 
+
         default:
             return state    
     }
 
+}
 
+export const showAnimal = (idAnimal,nameAnimal,speciesAnimal,breedAnimal,animalPhoto,descriptionAnimal,deleteAnimal) => {
+    return { type: DATA_ANIMAL_PAGE, idAnimal, nameAnimal,speciesAnimal,breedAnimal ,animalPhoto, descriptionAnimal,deleteAnimal}
 }
-//action creater, в него приходят данные для вывода информации на эран
-export const showAnimal = (idAnimal,nameAnimal,speciesAnimal,breedAnimal,animalPhoto,descriptionAnimal) => {
-    return { type: DATA_ANIMAL_PAGE, idAnimal, nameAnimal,speciesAnimal,breedAnimal ,animalPhoto, descriptionAnimal}
-}
+
 export default dataAboutAnimalReducer

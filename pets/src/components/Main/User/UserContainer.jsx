@@ -5,6 +5,7 @@ import axios from 'axios'
 import User from "./User"
 import {useLocation, useNavigate, useParams,} from "react-router-dom";
 import { showAnimal } from "../../../redux/about-animal-reducer";
+import {animalsAPI, usersAPI} from "../../../server/api/api";
 
 function withRouter(Component) {
    function ComponentWithRouterProp(props) {
@@ -25,11 +26,11 @@ class UsersContainer extends React.Component {
 
    componentDidMount() {
       let id = this.props.router.params.id;
-      axios.get("http://localhost:3005/users/" + id).then(response => {
-         this.props.setUsersProfile(response.data);
+      usersAPI.getCurrentUser(id).then(data => {
+         this.props.setUsersProfile(data);
       });
-      axios.get("http://localhost:3005/animals?userID=" + id).then(response => {
-         this.props.setUsersProfileAnimals(response.data);
+      animalsAPI.getPersonalAnimals(id).then(data => {
+         this.props.setUsersProfileAnimals(data);
       });
    }
 

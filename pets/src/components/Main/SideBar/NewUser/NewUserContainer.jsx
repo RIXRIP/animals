@@ -2,12 +2,12 @@ import {connect} from "react-redux";
 import {setUsers} from "../../../../redux/ads-user-reducer";
 import NewUsers from "./NewUsers";
 import React from "react";
-import axios from "axios";
+import {usersAPI} from "../../../../server/api/api";
 
 class NewUsersContainer extends React.Component {
     componentDidMount() {
-        axios.get("http://localhost:3005/users").then(response => {
-            this.props.setUsers(response.data);
+        usersAPI.getUsers().then(data => {
+            this.props.setUsers(data);
         });
     }
 

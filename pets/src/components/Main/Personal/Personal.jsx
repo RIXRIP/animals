@@ -1,8 +1,9 @@
 import styles from "../AnimalPage/Pages.module.scss";
-import NewUserAnimalsItem from "../User/NewUserAnimalsItem/NewUserAnimalsItem";
 import React from "react";
 import NewPersonalAnimalsItem from "./NewPersonalAnimalsItem";
 import {NavLink} from "react-router-dom";
+import {setPersonalProfileAnimals} from "../../../redux/auth-reducer";
+import axios from "axios";
 
 
 const Personal = (props) => {
@@ -11,8 +12,6 @@ const Personal = (props) => {
             <NavLink to={"/"}> <button className={styles.btn}>На главную</button></NavLink>
             <div>Мой профиль</div>
             <div>Почта: {props.personal.data.user.email}</div>
-            {/*<div>Телефон: {props.personal.phone? props.personal.phone: "Телефон не указан"}</div>*/}
-            {/*<div>Город: {props.personal.location? null: "Город не указан"}</div>*/}
             <div className={styles.allItems}>
                 {props.userCurrentAnimals.map(a => <div className={styles.conteinerItems}>
                         <NewPersonalAnimalsItem
@@ -23,6 +22,9 @@ const Personal = (props) => {
                             animalPhoto={a.animalPhoto}
                             description={a.description}
                             showAnimal={props.showAnimal}
+                            setPersonalProfileAnimals={props.setPersonalProfileAnimals}
+                            totalAnimals = {props.totalAnimals}
+                            postDelete={props.postDelete}
                         />
 
                     </div>

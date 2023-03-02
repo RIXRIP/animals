@@ -3,14 +3,7 @@ import styles from './NewUserAnimalsItem.module.scss'
 
 const NewUserAnimalsItem = (props) => {
     let recordAnimal = () => {
-        let idAnimal = props.id;
-        let nameAnimal = props.name;
-        let speciesAnimal = props.species;
-        let breedAnimal = props.breed;
-        let animalPhoto = props.animalPhoto;
-        let descriptionAnimal = props.description;
-        props.showAnimal(idAnimal, nameAnimal, speciesAnimal, breedAnimal, animalPhoto , descriptionAnimal);
-
+        props.showAnimal(props.id, props.name, props.species, props.breed, props.animalPhoto , props.description);
     }
 
     let path = "/animal/" + props.id

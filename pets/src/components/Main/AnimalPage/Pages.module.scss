@@ -25,13 +25,12 @@
   vertical-align: middle !important;
   float: none !important;
   margin: 5px;
-  max-width: 45%;
-  min-width: 30%;
+width: auto;
 }
 
 .allItems {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-right: auto;
   margin-left: auto;
 }
