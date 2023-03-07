@@ -1,24 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from 'axios'
 import { showAnimal } from "../../../redux/about-animal-reducer";
 import Personal from "./Personal";
-import { setPersonalProfileAnimals} from "../../../redux/auth-reducer";
-import {animalsAPI} from "../../../server/api/api";
-class PersonalConatiner extends React.Component {
+import {deleteAnimalTC, getPersonalAnimalsTC, setPersonalProfileAnimals} from "../../../redux/auth-reducer";
+class PersonalContainer extends React.Component {
 
     componentDidMount() {
-        animalsAPI.getPersonalAnimals(this.props.userID).then(data => {
-            this.props.setPersonalProfileAnimals(data);
-        });
+        this.props.getPersonalAnimalsTC(this.props.userID)
     }
     postDelete=()=>{
-        animalsAPI.deleteAnimal(this.props.id).then(data => {
-            this.props.setPersonalProfileAnimals(data);
-        })
-        animalsAPI.getTotalCount().then(data => {
-            animalsAPI.postTotalCount((this.props.totalAnimals - 1), (data.usersCount))
-        })
+    this.props.deleteAnimalTC(this.props.id,this.props.totalAnimals)
     }
 
     render() {
@@ -36,4 +27,4 @@ let mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, { setPersonalProfileAnimals,showAnimal })(PersonalConatiner);
+export default connect(mapStateToProps, { setPersonalProfileAnimals,showAnimal,getPersonalAnimalsTC,deleteAnimalTC })(PersonalContainer);

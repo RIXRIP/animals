@@ -4,7 +4,7 @@ import Header from "./Header";
 import {setPersonalData} from "../../../redux/auth-reducer";
 
 
-class HomeContainer extends React.Component {
+class HeaderContainer extends React.Component {
     componentDidMount() {
         if (localStorage.getItem('user') !== null) {
             this.props.setPersonalData(JSON.parse(localStorage.getItem('user')))
@@ -12,7 +12,6 @@ class HomeContainer extends React.Component {
     }
 
     logOutUser = () => {
-
         const userData = {
             user: {
                 id: null,
@@ -34,4 +33,4 @@ let mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {setPersonalData})(HomeContainer);
+export default connect(mapStateToProps, {setPersonalData})(HeaderContainer);

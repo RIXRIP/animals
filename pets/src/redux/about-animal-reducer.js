@@ -29,5 +29,8 @@ const dataAboutAnimalReducer = (state = initialState, action) => {
 export const showAnimal = (idAnimal,nameAnimal,speciesAnimal,breedAnimal,animalPhoto,descriptionAnimal,deleteAnimal) => {
     return { type: DATA_ANIMAL_PAGE, idAnimal, nameAnimal,speciesAnimal,breedAnimal ,animalPhoto, descriptionAnimal,deleteAnimal}
 }
+//Thunk
+
+
 
 export default dataAboutAnimalReducer

@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import Modal from "../../Modal/Modal";
 import styles from "./Content.module.scss"
-import axios from 'axios'
-import {animalsAPI} from "../../../server/api/api";
+
 
 const Content = (props) => {
     const [modalAddAnimal, setModalAddAnimal] = useState(false);

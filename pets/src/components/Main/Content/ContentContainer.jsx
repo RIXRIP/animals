@@ -1,8 +1,7 @@
 import {connect} from "react-redux";
-import {addText, updateText} from "../../../redux/ads-data-reducer";
+import {addText, postAnimalTC, updateText, updateTotalAnimalsTC} from "../../../redux/ads-data-reducer";
 import Content from "./Content";
 import React from "react";
-import {animalsAPI} from "../../../server/api/api";
 import {setUserCount} from "../../../redux/ads-user-reducer";
 
 class ContentContainer extends React.Component {
@@ -10,11 +9,10 @@ class ContentContainer extends React.Component {
 
     }
     NewAnimal(inputName, inputSpecies,inputBreed,inputPhoto,userID,inputDescription){
-        animalsAPI.postNewAnimal(inputName, inputSpecies,inputBreed,inputPhoto,userID,inputDescription);
+       this.postAnimalTC(inputName, inputSpecies,inputBreed,inputPhoto,userID,inputDescription);
     }
     updateTotalCount(totalAnimals){
-        animalsAPI.getTotalCount().then(data => {
-            animalsAPI.postTotalCount((totalAnimals), (data.usersCount))})
+      this.updateTotalAnimalsTC(totalAnimals);
     }
     render() {
         return <Content {...this.props} NewAnimal={this.NewAnimal} updateTotalCount={this.updateTotalCount}/>
@@ -29,4 +27,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {addText, updateText,setUserCount})(ContentContainer);
+export default connect(mapStateToProps, {addText, updateText,setUserCount, postAnimalTC, updateTotalAnimalsTC})(ContentContainer);

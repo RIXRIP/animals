@@ -1,9 +1,9 @@
-import axios from "axios";
+
 import {useState} from "react";
 import {NavLink} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import styles from "./Register.module.scss"
-import {animalsAPI, usersAPI} from "../../../server/api/api";
+
 
 const Register = (props) => {
     const navigate = useNavigate()
@@ -16,18 +16,7 @@ const Register = (props) => {
             email,
             password: e.target[0].value
         }
-
-        usersAPI.registerUser(newUser)
-            .then((data) => {
-                props.setPersonalData(data)
-                localStorage.setItem('user', JSON.stringify({
-                    user: {
-                        id: data.user.id,
-                        email: data.user.email
-                    }, accessToken: data.accessToken
-                }))
-                props.updateTotalCount(props.totalUsers+1);
-            })
+        props.register(newUser)
         navigate('/')
     }
 

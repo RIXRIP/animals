@@ -2,9 +2,6 @@ import styles from "../AnimalPage/Pages.module.scss";
 import React from "react";
 import NewPersonalAnimalsItem from "./NewPersonalAnimalsItem";
 import {NavLink} from "react-router-dom";
-import {setPersonalProfileAnimals} from "../../../redux/auth-reducer";
-import axios from "axios";
-
 
 const Personal = (props) => {
 

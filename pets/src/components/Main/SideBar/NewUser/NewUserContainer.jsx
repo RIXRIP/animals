@@ -1,14 +1,12 @@
 import {connect} from "react-redux";
-import {setUsers} from "../../../../redux/ads-user-reducer";
+import {getUserTC} from "../../../../redux/ads-user-reducer";
 import NewUsers from "./NewUsers";
 import React from "react";
-import {usersAPI} from "../../../../server/api/api";
+
 
 class NewUsersContainer extends React.Component {
     componentDidMount() {
-        usersAPI.getUsers().then(data => {
-            this.props.setUsers(data);
-        });
+        this.props.getUserTC();
     }
 
     render() {
@@ -25,4 +23,4 @@ const mapStateToProps = (state) => {
         user: state.auth.data.user.id
     }
 }
-export default connect(mapStateToProps, {setUsers})(NewUsersContainer);
+export default connect(mapStateToProps, {getUserTC})(NewUsersContainer);

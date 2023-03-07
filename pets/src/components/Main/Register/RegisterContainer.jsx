@@ -1,29 +1,27 @@
 import React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import Register from "./Register";
-import {setPersonalData} from "../../../redux/auth-reducer";
-import {animalsAPI} from "../../../server/api/api";
-import {setUserCount} from "../../../redux/ads-user-reducer";
+import { registerUserTC} from "../../../redux/auth-reducer";
+
+
+
 
 class RegisterContainer extends React.Component {
-
     componentDidMount() {
     }
-    updateTotalCount(usersCount){
-        animalsAPI.getTotalCount().then(data => {
-            animalsAPI.postTotalCount((data.animalsCount), (usersCount))
-        })
+
+    register(newUser) {
+        this.registerUserTC(newUser,)
     }
+
     render() {
-        return <Register {...this.props} updateTotalCount={this.updateTotalCount}/>
+        return <Register {...this.props} register={this.register}/>
     }
 }
 
 let mapStateToProps = (state) => ({
-register: state.auth.data,
-    totalAnimals: state.animalsData.totalAnimals,
-    totalUsers: state.usersData.totalUsersCount
+    register: state.auth.data
 })
 
 
-export default connect(mapStateToProps, { setPersonalData,setUserCount })(RegisterContainer);
+export default connect(mapStateToProps, {registerUserTC})(RegisterContainer);

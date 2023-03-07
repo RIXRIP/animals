@@ -13,11 +13,11 @@ const NewAnimals =(props)=> {
         return <div>
             <div className={styles.pagination}>
                 {
-                    pages.map(p => <span className={styles.pagination}> <button className={props.currentPage === p && styles.selectedPage}
-                        onClick={(e) => props.onPageChanged(p)} >{p}</button></span>)
+                    pages.map(p => <span className={styles.pagination}> <button className={props.currentPage === p && (styles.selectedPage)}
+                        onClick={() => props.onPageChanged(p)} >{p}</button></span>)
                 }
             </div>
-            {props.animals.map(a => <div className={styles.conteinerGrid}>
+            {props.animals.map(a => <div className={styles.containerGrid}>
                 <NewAnimalsItem
                     id={a.id}
                     name={a.name}

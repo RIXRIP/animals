@@ -7,7 +7,7 @@ const SidebarAnimal = (props) => {
     return (
         <>
             <body className={styles.container}>
-                <div className={styles.conteinerGrid}>
+                <div className={styles.containerGrid}>
                     <h3 className={styles.item_1}>Питомцы</h3>
                     <div className={styles.item}>
                         <NewAnimalsContainer />

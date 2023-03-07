@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setUsersProfile, setUsersProfileAnimals } from "../../../redux/ads-user-reducer";
-import axios from 'axios'
 import User from "./User"
 import {useLocation, useNavigate, useParams,} from "react-router-dom";
 import { showAnimal } from "../../../redux/about-animal-reducer";
-import {animalsAPI, usersAPI} from "../../../server/api/api";
+import {animalsAPI, usersAPI} from "../../../api/api";
 
 function withRouter(Component) {
    function ComponentWithRouterProp(props) {

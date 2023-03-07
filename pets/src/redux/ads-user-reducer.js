@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api";
+
 const SET_USERS_PROFILE = "SET_USERS_PROFILE";
 const SET_USERS = "SET_USERS";
 const SET_USERS_PROFILE_ANIMALS = "SET_USERS_PROFILE_ANIMALS"
@@ -54,5 +56,13 @@ export const setUserCount =(totalUsersCount)=>{
 export const setUsersProfileAnimals = (userCurrentAnimals) => {
         return { type: SET_USERS_PROFILE_ANIMALS, userCurrentAnimals }
 }
+//Thunk
 
+export const getUserTC =()=>{
+        return (dispatch)=>{
+                usersAPI.getUsers().then(data => {
+                        dispatch(setUsers(data));
+                });
+        }
+}
 export default adsUserReducer

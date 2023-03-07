@@ -6,7 +6,7 @@ import AnimalPageContainer from "./AnimalPage/AnimalPageContainer";
 import SidebarUser from "./SideBar/SidebarUser";
 import UserContainer from "./User/UserContainer";
 import HeaderContainer from "./Header/HeaderContainer";
-import PersonalConatiner from "./Personal/PersonalContainer";
+import PersonalContainer from "./Personal/PersonalContainer";
 import LoginContainer from "./Login/LoginContainer";
 import RegisterContainer from "./Register/RegisterContainer";
 
@@ -15,12 +15,12 @@ const Main = (props) => {
         <>
             <Router>
                 <HeaderContainer className={styles.header} />
-                <div className={styles.сonteiner}>
+                <div className={styles.container}>
                     <SidebarAnimal className={styles.sidebar}  />
                     <Routes >
                         <Route exact path="/" element={<ContentContainer className={styles.content}/>}></Route>
                         <Route path={"/user/:id"} element={<UserContainer />}></Route>
-                        <Route path={"/personal"} element={<PersonalConatiner  />}></Route>
+                        <Route path={"/personal"} element={<PersonalContainer  />}></Route>
                         <Route path={"/animal/:id"} element={<AnimalPageContainer  />}></Route>
                         <Route exact path="/login" element={<LoginContainer/>}></Route>
                         <Route exact path="/register" element={<RegisterContainer/>}></Route>
